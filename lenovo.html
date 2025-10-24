@@ -165,6 +165,15 @@
         }
     </style>
 </head>
+    <script>
+window.onload = function() {
+  const height = document.documentElement.scrollHeight;
+  window.parent.postMessage(height, "*");
+};
+</script>
+</body>
+</html>
+
 <body class="page-background">
 <section class="container-kertas">
 
@@ -314,4 +323,5 @@
     <footer></footer>
 </section>
 </body>
+
 </html>
