@@ -1,0 +1,92 @@
+<!doctype html>
+
+
+    
+    
+
+    <style>
+        /* Variabel Warna */
+        :root {
+            --primary-marketing: #8e44ad; /* Ungu */
+            --bg-color: #f4f6f9; /* Background default */
+        }
+
+        /* Basic Styling Body: Penting untuk tampilan agar terlihat seperti header terpisah */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            /* Latar belakang putih atau transparan lebih baik untuk header website */
+            background-color: #ffffff; 
+            margin: 0;
+            padding: 20px 0; /* Memberi ruang di atas dan bawah tombol */
+        }
+
+        /* Wadah Tombol (Kunci Centering dan Responsif) */
+        .button-container {
+            display: flex;       /* Mengaktifkan Flexbox */
+            flex-wrap: wrap;     /* Memungkinkan tombol pindah ke baris baru */
+            gap: 15px;           /* Jarak antar tombol */
+            
+            /* == KUNCI CENTERING == */
+            justify-content: center; /* Memastikan tombol rata tengah */
+            width: fit-content;      /* Wadah hanya selebar total tombol */
+            max-width: 95%;          /* Batas lebar agar responsif */
+            margin: 0 auto;          /* Menengahkan wadah di tengah halaman */
+        }
+
+        /* Gaya Tombol */
+        .cta-button {
+            flex-shrink: 0; 
+            text-align: center;
+            
+            display: inline-block;
+            background-color: var(--primary-marketing) !important; 
+            color: #ffffff !important; 
+            padding: 15px 40px; 
+            border-radius: 50px; 
+            text-decoration: none;
+            font-size: 1.5rem; 
+            font-weight: 700;
+            transition: background-color 0.2s ease, transform 0.2s ease;
+            box-shadow: 0 6px 15px rgba(142, 68, 173, 0.4); /* Efek bayangan khas */
+        }
+        .cta-button:hover {
+            background-color: #9b59b6 !important; 
+            transform: translateY(-3px); 
+            box-shadow: 0 8px 20px rgba(142, 68, 173, 0.5); 
+        }
+
+        /* Media Query untuk Mobile */
+        @media (max-width: 600px) {
+            .button-container {
+                gap: 10px;
+                padding: 0 10px; /* Sedikit padding agar tombol tidak menempel di tepi layar */
+            }
+            .cta-button {
+                font-size: 1.2rem;
+                padding: 12px 25px;
+            }
+        }
+    </style>
+
+
+
+    <div class="button-container">
+        <a href="http://www.tyoreview.my.id/2025/10/cari-tahu.html" class="cta-button">
+            Tyobest
+        </a>
+        <a href="http://www.tyoreview.my.id" class="cta-button">
+            Home
+        </a>
+        <a href="http://www.tyoreview.my.id/p/recomend.html" class="cta-button">
+            Recomend
+        </a>
+        <a href="http://www.tyoreview.my.id/2025/10/cari-tahu.html" class="cta-button">
+            Archived
+        </a>
+        
+    </div>
+
+
+</!doctype>
