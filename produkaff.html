@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Duplikasi Halaman RDL Papaya Soap - Gabungan</title>
+    <style>
+        /* styles.css yang telah digabungkan */
+        body {
+            font-family: Arial, "Helvetica Neue", Helvetica, sans-serif !important;
+            line-height: 1.6 !important;
+            margin: 0 !important;
+            padding: 20px !important;
+            background-color: #f8f8f8 !important;
+            color: #333 !important;
+        }
+
+        .container {
+            max-width: 1000px !important;
+            margin: 0 auto !important;
+            padding: 20px !important;
+            background-color: #ffffff !important;
+        }
+
+        /* Header dan Judul */
+        .distributor-name {
+            font-size: 13px !important;
+            color: #777 !important;
+            margin-bottom: 5px !important;
+        }
+
+        h1 {
+            font-size: 22px !important;
+            font-weight: 700 !important;
+            margin-top: 0 !important;
+            margin-bottom: 25px !important;
+        }
+
+        /* Tata Letak Utama (Gambar dan Detail) */
+        .main-layout {
+            display: flex !important;
+            gap: 30px !important;
+            margin-bottom: 30px !important;
+            align-items: flex-start !important;
+        }
+
+        .product-image-section {
+            flex: 1.2 !important; 
+            position: relative !important;
+            padding-top: 5px !important;
+        }
+
+        .product-image-section img {
+            max-width: 100% !important;
+            height: auto !important;
+            display: block !important;
+            margin: 0 auto !important;
+            border-radius: 4px !important;
+        }
+
+        .image-source {
+            font-size: 12px !important;
+            color: #999 !important;
+            text-align: left !important;
+            margin-top: 10px !important;
+            border-bottom: 1px solid #eee !important;
+            padding-bottom: 20px !important;
+            margin-bottom: 0 !important;
+        }
+
+        .details-section {
+            flex: 1 !important; 
+        }
+
+        /* Box Harga */
+        .price-box {
+            margin-bottom: 30px !important;
+        }
+
+        .reference-price {
+            font-size: 13px !important;
+            color: #757575 !important;
+            display: flex !important;
+            align-items: center !important;
+            margin-bottom: 3px !important;
+        }
+
+        .info-icon {
+            margin-left: 4px !important;
+            font-weight: 700 !important;
+            cursor: pointer !important;
+            font-size: 10px !important;
+            line-height: 1 !important;
+        }
+
+        .main-price {
+            font-size: 30px !important;
+            font-weight: 700 !important;
+            color: #333 !important;
+            margin: 0 !important;
+            display: inline-block !important;
+            margin-right: 10px !important;
+        }
+
+        .price-status {
+            font-size: 13px !important;
+            color: #757575 !important;
+            display: inline-block !important;
+            padding: 2px 8px !important;
+            background-color: #f0f0f0 !important;
+            border-radius: 4px !important;
+            vertical-align: middle !important;
+            font-weight: bold !important;
+        }
+
+        /* Tombol CTA */
+        .cta-buttons a {
+            display: block !important;
+            text-align: center !important;
+            padding: 12px 30px !important;
+            margin-bottom: 12px !important;
+            text-decoration: none !important;
+            font-weight: 700 !important;
+            border-radius: 6px !important;
+            font-size: 15px !important;
+        }
+
+        .shopee, .lazada {
+            background-color: #00b100 !important;
+            color: white !important;
+            border: none !important;
+        }
+
+        /* Bagian Kandungan/Ingredients */
+        .ingredients-section-wrapper {
+            display: grid !important;
+            grid-template-columns: 1fr 1fr !important;
+            border: 1px solid #e0e0e0 !important;
+            margin-top: 10px !important;
+            margin-bottom: 30px !important;
+        }
+
+        .ingredient-item {
+            display: flex !important;
+            font-size: 14px !important;
+            line-height: 1.4 !important;
+        }
+
+        .ingredient-item:first-child {
+            border-right: 1px solid #e0e0e0 !important;
+        }
+
+        .item-title {
+            background-color: #fff8f5 !important;
+            padding: 15px 12px !important;
+            font-weight: 500 !important;
+            flex-basis: 40% !important;
+            color: #555 !important;
+        }
+
+        .item-content {
+            background-color: #ffffff !important;
+            padding: 15px 12px !important;
+            flex-basis: 60% !important;
+            color: #333 !important;
+        }
+
+        /* Bagian Deskripsi */
+        .usage-note {
+            font-weight: bold !important;
+            color: #333 !important;
+            margin-top: 10px !important;
+            margin-bottom: 20px !important;
+            font-size: 14px !important;
+            display: flex !important;
+            align-items: center !important;
+        }
+
+        .checkmark {
+            color: #00b100 !important;
+            font-weight: bold !important;
+            font-size: 16px !important;
+            margin-left: 5px !important;
+        }
+
+        .description-section h2 {
+            font-size: 24px !important;
+            font-weight: 700 !important;
+            margin-top: 0 !important;
+            margin-bottom: 15px !important;
+            color: #333 !important;
+            line-height: 1.3 !important;
+        }
+
+        .description-section p {
+            color: #555 !important;
+            font-size: 15px !important;
+            line-height: 1.7 !important;
+        }
+
+        /* Responsif sederhana untuk layar kecil */
+        @media (max-width: 768px) {
+            .main-layout {
+                flex-direction: column !important;
+            }
+            .ingredients-section-wrapper {
+                grid-template-columns: 1fr !important; 
+            }
+            .ingredient-item:first-child {
+                border-right: none !important;
+                border-bottom: 1px solid #e0e0e0 !important;
+            }
+            .image-source {
+                border-bottom: none !important;
+                padding-bottom: 0 !important;
+            }
+        }
+    </style>
+    </head>
+<body>
+    <div class="container">
+        <header>
+            <p class="distributor-name">Beeru Stevia Natural Sweetener - 15mL</p>
+            <h1>stevia</h1>
+        </header>
+
+        <div class="main-layout">
+            <div class="product-image-section">
+                <img src="https://down-id.img.susercontent.com/file/id-11134207-81zti-mejpmuhmrzt1ec.webp" alt="RDL Papaya Whitening Soap with Sunscreen">
+                <p class="image-source">Sumber gambar: shoope </p>
+            </div>
+            
+            <div class="details-section">
+                <div class="price-box">
+                    <div class="reference-price">
+                        Harga referensi
+                        <span class="info-icon">ⓘ</span>
+                    </div>
+                    <p class="main-price">Rp85.000</p>
+                    <span class="price-status">standard</span>
+                </div>
+
+                <div class="cta-buttons">
+                    <a href="https://s.shopee.co.id/5pzvZ6kA2W" class="btn shopee">Lihat produk di Shopee</a>
+                    <a href="#" class="btn lazada">Lihat produk di Lazada</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="ingredients-section-wrapper">
+            
+            <div class="ingredient-item">
+                <div class="item-title">BPOM</div>
+                <div class="item-content">POM RI MD 878011037370</div>
+            </div>
+            
+            <div class="ingredient-item">
+                <div class="item-title">Halal ID :</div>
+                <div class="item-content">ID33210018715100424</div>
+            </div>
+
+        </div>
+
+        <div class="description-section">
+            <p class="usage-note">0 kalori untuk hidup lebih sehat <span class="checkmark">✔</span></p>
+            <h2>Beeru Stevia adalah pemanis alami 0 kalori dengan ekstrak daun Stevia rebaudiana 97%. Rasa manis dari Beeru Stevia 300x lebih manis dari gula.</h2>
+            <p>Kenapa Beeru Stevia ?
+
+- Nol Kalori ( 0 kkal )
+
+- Dari bahan alami ekstrak daun Stevia rebaudiana 97%
+
+- BPOM Certified
+
+- Halal Certified
+
+- No Aftertaste
+
+- Mudah larut 
+
+- Praktis untuk dibawa 
+
+- Stabil dalam suhu panas
+
+- Dapat digunakan untuk minuman, makanan dan masakan
+
+- Aman dikonsumsi untuk penderita diabetes
+
+- 1 botol Beeru liquid stevia 15 ml berisi lebih dari 300 tetes</p>
+        </div>
+    </div>
+</body>
+</html>
