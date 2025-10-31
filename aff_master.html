@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pengurangan dan Penjumlahan Buku Kerja Matematika/Soal Latihan Matematika Anak </title>
+    <style>
+        /* styles.css yang telah digabungkan */
+        body {
+            font-family: Arial, "Helvetica Neue", Helvetica, sans-serif !important;
+            line-height: 1.6 !important;
+            margin: 0 !important;
+            padding: 20px !important;
+            background-color: #f8f8f8 !important;
+            color: #333 !important;
+        }
+
+        .container {
+            max-width: 1000px !important;
+            margin: 0 auto !important;
+            padding: 20px !important;
+            background-color: #ffffff !important;
+        }
+
+        /* Header dan Judul */
+        .distributor-name {
+            font-size: 13px !important;
+            color: #777 !important;
+            margin-bottom: 5px !important;
+        }
+
+        h1 {
+            font-size: 22px !important;
+            font-weight: 700 !important;
+            margin-top: 0 !important;
+            margin-bottom: 25px !important;
+        }
+
+        /* Tata Letak Utama (Gambar dan Detail) */
+        .main-layout {
+            display: flex !important;
+            gap: 30px !important;
+            margin-bottom: 30px !important;
+            align-items: flex-start !important;
+        }
+
+        .product-image-section {
+            flex: 1.2 !important; 
+            position: relative !important;
+            padding-top: 5px !important;
+        }
+
+        .product-image-section img.main-image { /* Tambahan kelas untuk gambar utama */
+            max-width: 100% !important;
+            height: auto !important;
+            display: block !important;
+            margin: 0 auto !important;
+            border-radius: 4px !important;
+            border: 1px solid #ddd !important; /* Border pada gambar utama */
+        }
+
+        /* Styling untuk thumbnail */
+        .thumbnail-gallery {
+            display: flex !important;
+            gap: 10px !important;
+            margin-top: 15px !important;
+            overflow-x: auto !important; /* Membuat galeri bisa discroll jika banyak */
+            padding-bottom: 5px !important;
+        }
+
+        .thumbnail-item {
+            width: 70px !important; /* Ukuran thumbnail */
+            height: 70px !important;
+            min-width: 70px !important;
+            cursor: pointer !important;
+            border: 2px solid transparent !important;
+            border-radius: 4px !important;
+            transition: border-color 0.2s !important;
+            padding: 2px !important;
+            background-color: #fff !important;
+            overflow: hidden !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+        }
+
+        .thumbnail-item img {
+            width: 100% !important;
+            height: auto !important;
+            display: block !important;
+        }
+
+        .thumbnail-item.active {
+            border-color: #00b100 !important; /* Warna border saat aktif */
+        }
+        /* Akhir Styling untuk thumbnail */
+
+        .image-source {
+            font-size: 12px !important;
+            color: #999 !important;
+            text-align: left !important;
+            margin-top: 10px !important;
+            border-bottom: 1px solid #eee !important;
+            padding-bottom: 20px !important;
+            margin-bottom: 0 !important;
+        }
+
+        .details-section {
+            flex: 1 !important; 
+        }
+
+        /* Box Harga */
+        .price-box {
+            margin-bottom: 30px !important;
+        }
+
+        .reference-price {
+            font-size: 13px !important;
+            color: #757575 !important;
+            display: flex !important;
+            align-items: center !important;
+            margin-bottom: 3px !important;
+        }
+
+        .info-icon {
+            margin-left: 4px !important;
+            font-weight: 700 !important;
+            cursor: pointer !important;
+            font-size: 10px !important;
+            line-height: 1 !important;
+        }
+
+        .main-price {
+            font-size: 30px !important;
+            font-weight: 700 !important;
+            color: #333 !important;
+            margin: 0 !important;
+            display: inline-block !important;
+            margin-right: 10px !important;
+        }
+
+        .price-status {
+            font-size: 13px !important;
+            color: #757575 !important;
+            display: inline-block !important;
+            padding: 2px 8px !important;
+            background-color: #f0f0f0 !important;
+            border-radius: 4px !important;
+            vertical-align: middle !important;
+            font-weight: bold !important;
+        }
+
+        /* Tombol CTA */
+        .cta-buttons a {
+            display: block !important;
+            text-align: center !important;
+            padding: 12px 30px !important;
+            margin-bottom: 12px !important;
+            text-decoration: none !important;
+            font-weight: 700 !important;
+            border-radius: 6px !important;
+            font-size: 15px !important;
+        }
+
+        .shopee, .lazada {
+            background-color: #00b100 !important;
+            color: white !important;
+            border: none !important;
+        }
+
+        /* Bagian Kandungan/Ingredients */
+        .ingredients-section-wrapper {
+            display: grid !important;
+            grid-template-columns: 1fr 1fr !important;
+            border: 1px solid #e0e0e0 !important;
+            margin-top: 10px !important;
+            margin-bottom: 30px !important;
+        }
+
+        .ingredient-item {
+            display: flex !important;
+            font-size: 14px !important;
+            line-height: 1.4 !important;
+        }
+
+        .ingredient-item:first-child {
+            border-right: 1px solid #e0e0e0 !important;
+        }
+
+        .item-title {
+            background-color: #fff8f5 !important;
+            padding: 15px 12px !important;
+            font-weight: 500 !important;
+            flex-basis: 40% !important;
+            color: #555 !important;
+        }
+
+        .item-content {
+            background-color: #ffffff !important;
+            padding: 15px 12px !important;
+            flex-basis: 60% !important;
+            color: #333 !important;
+        }
+
+        /* Bagian Deskripsi */
+        .usage-note {
+            font-weight: bold !important;
+            color: #333 !important;
+            margin-top: 10px !important;
+            margin-bottom: 20px !important;
+            font-size: 14px !important;
+            display: flex !important;
+            align-items: center !important;
+        }
+
+        .checkmark {
+            color: #00b100 !important;
+            font-weight: bold !important;
+            font-size: 16px !important;
+            margin-left: 5px !important;
+        }
+
+        .description-section h2 {
+            font-size: 24px !important;
+            font-weight: 700 !important;
+            margin-top: 0 !important;
+            margin-bottom: 15px !important;
+            color: #333 !important;
+            line-height: 1.3 !important;
+        }
+
+        .description-section p {
+            color: #555 !important;
+            font-size: 15px !important;
+            line-height: 1.7 !important;
+        }
+
+        /* Responsif sederhana untuk layar kecil  */
+        @media (max-width: 768px) {
+            .main-layout {
+                flex-direction: column !important;
+            }
+            .ingredients-section-wrapper {
+                grid-template-columns: 1fr !important; 
+            }
+            .ingredient-item:first-child {
+                border-right: none !important;
+                border-bottom: 1px solid #e0e0e0 !important;
+            }
+            .image-source {
+                border-bottom: none !important;
+                padding-bottom: 0 !important;
+            }
+        }
+    </style>
+    </head>
+<body>
+    <div class="container">
+        <header>
+            <p class="distributor-name">Pengurangan dan Penjumlahan Buku Kerja Matematika/Soal Latihan Matematika Anak </p>
+           <h1>LIGE Jam Tangan Pintar </h1> 
+    
+        </header>
+
+        <div class="main-layout">
+            <div class="product-image-section">
+                <img id="mainProductImage" class="main-image" src="https://down-id.img.susercontent.com/file/id-11134207-7r98w-lx8b0fg9a2am8a.webp" alt="Buku Kerja Matematika/Soal Latihan Matematika Anak">
+                
+                <div class="thumbnail-gallery">
+                    <div class="thumbnail-item active" data-src="https://down-id.img.susercontent.com/file/id-11134207-7r98u-lx8b0fg9795q81.webp">
+                        <img src="https://down-id.img.susercontent.com/file/id-11134207-7r98u-lx8b0fg9795q81.webp" alt="Thumb 1">
+                    </div>
+                    <div class="thumbnail-item" data-src="https://down-id.img.susercontent.com/file/id-11134207-7r98s-lx8b0fg9bgv221.webp">
+                        <img src="https://down-id.img.susercontent.com/file/id-11134207-7r98s-lx8b0fg9bgv221.webp" alt="Thumb 2">
+                    </div>
+                    <div class="thumbnail-item" data-src="https://down-id.img.susercontent.com/file/id-11134207-7r98z-lx8b0fg9cvfi30.webp">
+                        <img src="https://down-id.img.susercontent.com/file/id-11134207-7r98z-lx8b0fg9cvfi30.webp" alt="Thumb 3">
+                    </div>
+                    <div class="thumbnail-item" data-src="https://down-id.img.susercontent.com/file/id-11134207-7r98s-lx8b0fg94fu60a.webp">
+                        <img src="https://down-id.img.susercontent.com/file/id-11134207-7r98s-lx8b0fg94fu60a.webp" alt="Thumb 4">
+                    </div>
+                     <div class="thumbnail-item" data-src="https://down-id.img.susercontent.com/file/id-11134207-7r98s-lx8b0fg9e9zye3.webp">
+                        <img src="https://down-id.img.susercontent.com/file/id-11134207-7r98s-lx8b0fg9e9zye3.webp" alt="Thumb 5">
+                    </div>
+                </div>
+
+                <p class="image-source">Sumber gambar: shoope</p>
+            </div>
+            
+            <div class="details-section">
+                <div class="price-box">
+                    <div class="reference-price">
+                        Harga referensi
+                        <span class="info-icon">ⓘ</span>
+                    </div>
+                    <p class="main-price">Rp13.000</p>
+                    <span class="price-status">Murah</span>
+                </div>
+
+                <div class="cta-buttons">
+                    <a href="https://s.shopee.co.id/2qMN1cCgJf" class="btn shopee"> Shopee</a>
+                    <a href="#" class="btn lazada">Tokopedia</a>
+                   
+                </div>
+                
+            </div>
+        </div>
+
+        <div class="ingredients-section-wrapper">
+            
+            <div class="ingredient-item">
+                <div class="item-title">Kategori :</div>
+                <div class="item-content">Buku Pelajaran Anak</div>
+            </div>
+            
+            <div class="ingredient-item">
+                <div class="item-title">Jenis :</div>
+                <div class="item-content">Latihan Soal</div>
+            </div>
+
+        </div>
+
+        <div class="description-section">
+            <p class="usage-note"> Buku Kerja Matematika/Soal Latihan Matematika Anak  <span class="checkmark">✔</span></p>
+            <h2> Buku Kerja Matematika/Soal Latihan Matematika Anak </h2>
+           <section>
+                <h2>Buku latihan Penjumlahan, pengurangan</h2>
+                <p>Buku untuk pendidikan anak dasar melatih perhitungan angka</p>
+                
+               
+               
+            </section>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const mainImage = document.getElementById('mainProductImage');
+            const thumbnails = document.querySelectorAll('.thumbnail-item');
+
+            thumbnails.forEach(thumbnail => {
+                thumbnail.addEventListener('click', function() {
+                    // 1. Dapatkan URL gambar baru dari atribut data-src
+                    const newImageSrc = this.getAttribute('data-src');
+
+                    // 2. Ubah atribut src pada gambar utama
+                    mainImage.src = newImageSrc;
+                    mainImage.alt = this.querySelector('img').alt; // Update alt text
+
+                    // 3. Hapus kelas 'active' dari semua thumbnail
+                    thumbnails.forEach(t => t.classList.remove('active'));
+
+                    // 4. Tambahkan kelas 'active' ke thumbnail yang baru saja diklik
+                    this.classList.add('active');
+                });
+            });
+        });
+    </script>
+</body>
+</html>

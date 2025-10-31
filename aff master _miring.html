@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stainless Botol Vacuum Cup K623 </title>
+    <style>
+        /* styles.css yang telah digabungkan */
+        body {
+            font-family: Arial, "Helvetica Neue", Helvetica, sans-serif !important;
+            line-height: 1.6 !important;
+            margin: 0 !important;
+            padding: 20px !important;
+            background-color: #f8f8f8 !important;
+            color: #333 !important;
+        }
+
+        .container {
+            max-width: 1000px !important;
+            margin: 0 auto !important;
+            padding: 20px !important;
+            background-color: #ffffff !important;
+        }
+
+        /* Header dan Judul */
+        .distributor-name {
+            font-size: 13px !important;
+            color: #777 !important;
+            margin-bottom: 5px !important;
+        }
+
+        h1 {
+            font-size: 22px !important;
+            font-weight: 700 !important;
+            margin-top: 0 !important;
+            margin-bottom: 25px !important;
+        }
+
+        /* Tata Letak Utama (Gambar dan Detail) */
+        .main-layout {
+            display: flex !important;
+            gap: 30px !important;
+            margin-bottom: 30px !important;
+            align-items: flex-start !important;
+        }
+
+        .product-image-section {
+            flex: 1.2 !important; 
+            position: relative !important;
+            padding-top: 5px !important;
+        }
+
+        .product-image-section img.main-image {
+            max-width: 100% !important;
+            height: auto !important;
+            display: block !important;
+            margin: 0 auto !important;
+            border-radius: 4px !important;
+            border: 1px solid #ddd !important;
+        }
+
+        /* Styling untuk thumbnail */
+        .thumbnail-gallery {
+            display: flex !important;
+            gap: 10px !important;
+            margin-top: 15px !important;
+            overflow-x: auto !important;
+            padding-bottom: 5px !important;
+        }
+
+        .thumbnail-item {
+            width: 70px !important;
+            height: 70px !important;
+            min-width: 70px !important;
+            cursor: pointer !important;
+            border: 2px solid transparent !important;
+            border-radius: 4px !important;
+            transition: border-color 0.2s !important;
+            padding: 2px !important;
+            background-color: #fff !important;
+            overflow: hidden !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+        }
+
+        .thumbnail-item img {
+            width: 100% !important;
+            height: auto !important;
+            display: block !important;
+        }
+
+        .thumbnail-item.active {
+            border-color: #00b100 !important;
+        }
+        /* Akhir Styling untuk thumbnail */
+
+        .image-source {
+            font-size: 12px !important;
+            color: #999 !important;
+            text-align: left !important;
+            margin-top: 10px !important;
+            border-bottom: 1px solid #eee !important;
+            padding-bottom: 20px !important;
+            margin-bottom: 0 !important;
+        }
+
+        .details-section {
+            flex: 1 !important; 
+        }
+
+        /* Box Harga */
+        .price-box {
+            margin-bottom: 30px !important;
+        }
+
+        .reference-price {
+            font-size: 13px !important;
+            color: #757575 !important;
+            display: block !important; /* Agar di baris sendiri */
+            margin-bottom: 3px !important;
+        }
+
+        .info-icon {
+            margin-left: 4px !important;
+            font-weight: 700 !important;
+            cursor: pointer !important;
+            font-size: 10px !important;
+            line-height: 1 !important;
+            vertical-align: top !important; /* Menyelaraskan ikon dengan teks */
+        }
+        
+        /* Harga Coret LAMA - Menggunakan ::before untuk garis miring yang lebih baik */
+        .old-price {
+            font-size: 18px !important; 
+            color: #757575 !important;
+            text-decoration: none !important; /* Hapus coretan horizontal bawaan */
+            margin-right: 15px !important;
+            font-weight: 400 !important;
+            display: inline-block !important; /* Penting untuk posisi ::before */
+            position: relative !important; /* Penting untuk posisi ::before */
+            margin-bottom: 5px !important; /* Sedikit jarak dengan harga di bawahnya */
+        }
+
+        /* Garis Coret Miring Merah */
+        .old-price::before {
+            content: "" !important;
+            position: absolute !important;
+            top: 50% !important; /* Di tengah vertikal */
+            left: -5% !important; /* Mulai sedikit di luar kiri teks */
+            right: -5% !important; /* Berakhir sedikit di luar kanan teks */
+            height: 2px !important; /* Ketebalan garis */
+            background-color: #cc0000 !important; /* WARNA MERAH */
+            transform: translateY(-50%) rotate(-10deg) !important; /* Geser ke tengah lalu putar */
+            z-index: 1 !important; /* Pastikan di atas teks jika perlu */
+        }
+        /* Akhir Garis Coret Miring Merah */
+
+        /* Harga Diskon (Merah Besar) */
+        .main-price-wrapper { /* Wrapper baru untuk harga utama dan status agar inline */
+            display: flex !important;
+            align-items: center !important;
+            margin-top: 5px !important; /* Memberi jarak dari harga coret */
+        }
+
+        .main-price {
+            font-size: 34px !important;
+            font-weight: 900 !important; 
+            color: #cc0000 !important; 
+            margin: 0 !important; /* Atur margin di wrapper saja */
+            display: inline-block !important; /* Untuk bisa sejajar dengan status */
+            line-height: 1 !important; /* Menghilangkan spasi ekstra di bawah angka besar */
+        }
+
+        .price-status {
+            font-size: 13px !important;
+            color: #757575 !important;
+            display: inline-block !important;
+            padding: 2px 8px !important;
+            background-color: #f0f0f0 !important;
+            border-radius: 4px !important;
+            vertical-align: middle !important;
+            font-weight: bold !important;
+            margin-left: 10px !important; /* Jarak antara harga dan status */
+        }
+
+        /* Tombol CTA */
+        .cta-buttons a {
+            display: block !important;
+            text-align: center !important;
+            padding: 12px 30px !important;
+            margin-bottom: 12px !important;
+            text-decoration: none !important;
+            font-weight: 700 !important;
+            border-radius: 6px !important;
+            font-size: 15px !important;
+        }
+
+        .shopee, .lazada {
+            background-color: #00b100 !important;
+            color: white !important;
+            border: none !important;
+        }
+
+        /* Bagian Kandungan/Ingredients */
+        .ingredients-section-wrapper {
+            display: grid !important;
+            grid-template-columns: 1fr 1fr !important;
+            border: 1px solid #e0e0e0 !important;
+            margin-top: 10px !important;
+            margin-bottom: 30px !important;
+        }
+
+        .ingredient-item {
+            display: flex !important;
+            font-size: 14px !important;
+            line-height: 1.4 !important;
+        }
+
+        .ingredient-item:first-child {
+            border-right: 1px solid #e0e0e0 !important;
+        }
+
+        .item-title {
+            background-color: #fff8f5 !important;
+            padding: 15px 12px !important;
+            font-weight: 500 !important;
+            flex-basis: 40% !important;
+            color: #555 !important;
+        }
+
+        .item-content {
+            background-color: #ffffff !important;
+            padding: 15px 12px !important;
+            flex-basis: 60% !important;
+            color: #333 !important;
+        }
+
+        /* Bagian Deskripsi */
+        .usage-note {
+            font-weight: bold !important;
+            color: #333 !important;
+            margin-top: 10px !important;
+            margin-bottom: 20px !important;
+            font-size: 14px !important;
+            display: flex !important;
+            align-items: center !important;
+        }
+
+        .checkmark {
+            color: #00b100 !important;
+            font-weight: bold !important;
+            font-size: 16px !important;
+            margin-left: 5px !important;
+        }
+
+        .description-section h2 {
+            font-size: 24px !important;
+            font-weight: 700 !important;
+            margin-top: 0 !important;
+            margin-bottom: 15px !important;
+            color: #333 !important;
+            line-height: 1.3 !important;
+        }
+
+        .description-section p {
+            color: #555 !important;
+            font-size: 15px !important;
+            line-height: 1.7 !important;
+        }
+
+        /* Responsif sederhana untuk layar kecil  */
+        @media (max-width: 768px) {
+            .main-layout {
+                flex-direction: column !important;
+            }
+            .ingredients-section-wrapper {
+                grid-template-columns: 1fr !important; 
+            }
+            .ingredient-item:first-child {
+                border-right: none !important;
+                border-bottom: 1px solid #e0e0e0 !important;
+            }
+            .image-source {
+                border-bottom: none !important;
+                padding-bottom: 0 !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <p class="distributor-name">Stainless Botol Vacuum Cup K623 </p>
+           <h1>Termos Kaxifei Dream 400ml Mug Stainless Botol Vacuum Cup K623</h1> 
+    
+        </header>
+
+        <div class="main-layout">
+            <div class="product-image-section">
+                <img id="mainProductImage" class="main-image" src="https://down-id.img.susercontent.com/file/04359c382ba126f3bd247e96aec411f1.webp" alt="Stainless Botol Vacuum Cup K623">
+                
+                <div class="thumbnail-gallery">
+                    <div class="thumbnail-item active" data-src="https://down-id.img.susercontent.com/file/04359c382ba126f3bd247e96aec411f1.webp">
+                        <img src="https://down-id.img.susercontent.com/file/04359c382ba126f3bd247e96aec411f1.webp" alt="Thumb 1">
+                    </div>
+                    <div class="thumbnail-item" data-src="https://down-id.img.susercontent.com/file/0c1372c9764d72e5a3e2be4830dc4206.webp">
+                        <img src="https://down-id.img.susercontent.com/file/0c1372c9764d72e5a3e2be4830dc4206.webp" alt="Thumb 2">
+                    </div>
+                    <div class="thumbnail-item" data-src="https://down-id.img.susercontent.com/file/9a307d76463e7cc2aec22d37854fa6f8.webp">
+                        <img src="https://down-id.img.susercontent.com/file/9a307d76463e7cc2aec22d37854fa6f8.webp" alt="Thumb 3">
+                    </div>
+                    <div class="thumbnail-item" data-src="https://down-id.img.susercontent.com/file/82acf45e13a37e44720b881a51ef525c.webp">
+                        <img src="https://down-id.img.susercontent.com/file/82acf45e13a37e44720b881a51ef525c.webp" alt="Thumb 4">
+                    </div>
+                     <div class="thumbnail-item" data-src="https://down-id.img.susercontent.com/file/9a307d76463e7cc2aec22d37854fa6f8.webp">
+                        <img src="https://down-id.img.susercontent.com/file/9a307d76463e7cc2aec22d37854fa6f8.webp" alt="Thumb 5">
+                    </div>
+                </div>
+
+                <p class="image-source">Sumber gambar: shoope</p>
+            </div>
+            
+            <div class="details-section">
+                <div class="price-box">
+                    <p class="reference-price">Harga referensi
+                        <span class="info-icon">ⓘ</span>
+                    </p>
+                    <span class="old-price">Rp89.000</span>
+                    
+                    <div class="main-price-wrapper">
+                        <p class="main-price">Rp69.000</p>
+                        <span class="price-status">Murah</span>
+                    </div>
+                </div>
+
+                <div class="cta-buttons">
+                    <a href="https://s.shopee.co.id/Lf2DmPTnW" class="btn shopee"> Beli di Shopee</a>
+                    <a href="#" class="btn lazada">Beli di Tokopedia</a>
+                   
+                </div>
+                
+            </div>
+        </div>
+
+        <div class="ingredients-section-wrapper">
+            
+            <div class="ingredient-item">
+                <div class="item-title">Kapasitas :</div>
+                <div class="item-content">400 ml</div>
+            </div>
+            
+            <div class="ingredient-item">
+                <div class="item-title">Bahan :</div>
+                <div class="item-content">Stainless</div>
+            </div>
+
+        </div>
+
+        <div class="description-section">
+            <p class="usage-note"> Termos Kaxifei Dream 400ml Mug Stainless Botol Vacuum Cup K623 <span class="checkmark">✔</span></p>
+            <h2> Termos Kaxifei Dream </h2>
+           <section>
+               Termos Kaxifei Dream 400ml
+
+
+
+<p>Termos terbuat dari bahan stainless steel yang mampu menjaga suhu panas hingga 8 jam, sementara air dingin hingga 24 jam. Botol thermos ini sangat cocok diisi teh, susu, kopi panas, jus buah, sup dan minuman lainnya.</p>
+
+
+
+<p>Termos ini memiliki bentuk yang tidak terlalu besar dan ideal untuk dimasukkan kedalam tas sehingga mudah dibawa kemana saja Anda berpergian.</p>
+
+
+
+<p>Bahan steinless steel, baik pada bagian dalam maupun luar botol. Bahan dari botol juga bebas BPA, sehingga tidak memiliki efek racun saat Anda gunakan untuk anak-anak maupun dewasa.</p>
+
+
+
+<li>Easy to wash and clean.</li>
+
+<li>Material : 340 Stainless Steel</li>
+
+<li>Packaging : box/pcs</li>
+
+<li>Capacity : 400ml</li>
+
+<li>Color : Black / Silver / Ivory / Blue</li>
+
+<li>Holding time : 6 - 24 hours</li>
+
+<li>Cup sets: Protective cup cover</li>
+
+<li>Accessory type : With strainer</li>
+
+
+
+<li>high-grade personality simple portable<\li>
+
+
+<li>Ukuran kotak : 16 x 8.3 x 8.3 cm</li>
+
+<li>Berat satuan : 500gr</li> 
+                
+               
+               
+            </section>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const mainImage = document.getElementById('mainProductImage');
+            const thumbnails = document.querySelectorAll('.thumbnail-item');
+
+            thumbnails.forEach(thumbnail => {
+                thumbnail.addEventListener('click', function() {
+                    const newImageSrc = this.getAttribute('data-src');
+                    mainImage.src = newImageSrc;
+                    mainImage.alt = this.querySelector('img').alt;
+
+                    thumbnails.forEach(t => t.classList.remove('active'));
+                    this.classList.add('active');
+                });
+            });
+        });
+    </script>
+</body>
+</html>
