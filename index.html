@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kosa kata bahasa jepang dan rangkuman</title>
+    <meta name="description" content="Temukan daftar kosa kata dan topik utama yang dapat dicari dengan cepat menggunakan filter pencarian yang stabil.">
+    <style>
+        /* Variabel Warna DITINGKATKAN untuk 4 Kotak */
+        :root {
+            --primary-marketing: #8e44ad; /* Ungu (Gadget) */
+            --primary-design: #2ecc71;    /* Hijau (Lifestyle) */
+            --primary-gear: #3498db;      /* Biru (Barang Pilihan) */
+            --primary-cuan: #e74c3c;      /* Merah (Cari Cuan) */
+            --bg-color: #f4f6f9;
+            --card-bg: #ffffff;
+            --text-color: #333;
+            --border-color: #e0e0e0;
+        }
+
+        /* Basic Styling */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background: var(--bg-color);
+            padding: 20px;
+            margin: 0;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 15px;
+        }
+
+        /* JUDUL UTAMA */
+        .main-header {
+            text-align: center;
+            margin-bottom: 25px;
+            margin-top: 10px;
+        }
+        .main-header h1 {
+            color: #ff9800; /* Warna Oranye */
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin: 0;
+        }
+        .main-header p {
+            font-size: 1.2rem;
+            color: var(--text-color);
+            margin-top: 10px;
+            font-weight: 600;
+        }
+        .main-header p.subtitle {
+            font-size: 1.1rem; 
+            color: #666; 
+            margin-top: 5px;
+        }
+        
+        /* Search Box Styling */
+        .search-container {
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        /* Menggunakan ID postSearch dari contoh.html */
+        #postSearch { 
+            width: 100%;
+            max-width: 600px;
+            padding: 15px 20px 15px 50px; 
+            font-size: 1rem;
+            border: 2px solid var(--border-color);
+            border-radius: 30px;
+            outline: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+            background: var(--card-bg) url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="%23888" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>') no-repeat 15px center;
+            background-size: 20px 20px;
+        }
+
+        #postSearch:focus {
+            border-color: var(--primary-marketing);
+            box-shadow: 0 4px 10px rgba(142, 68, 173, 0.2);
+        }
+
+        /* Mengganti gaya .quad-grid dan .class-group dengan gaya Daftar Isi */
+        .toc-wrapper {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+        }
+
+        /* Scrollable Area */
+        .scrollable-toc {
+            max-height: 400px; 
+            overflow-y: auto; 
+            padding-right: 15px;
+        }
+
+        /* Daftar Tak Berurut (Data Anda) */
+        .toc-list {
+            list-style-type: none; 
+            padding-left: 0;
+            margin: 0;
+        }
+        .toc-list li {
+            margin: 10px 0;
+            padding: 5px 0;
+            border-bottom: 1px dotted #ccc;
+            display: list-item; /* Penting untuk filter */
+        }
+        .toc-list a {
+            text-decoration: none;
+            color: var(--primary-gear); /* Menggunakan warna biru contoh.html */
+            font-weight: 600;
+            display: block;
+            padding: 5px 10px;
+            transition: background-color 0.3s;
+        }
+        .toc-list a:hover {
+            background-color: #f7f9fc; 
+            color: #c0392b; 
+            border-radius: 4px;
+        }
+        .section-number {
+            font-weight: normal;
+            color: #666;
+            margin-right: 10px;
+        }
+
+        /* Hapus style .quad-grid, .class-group, .class-item karena tidak dipakai */
+
+    </style>
+</head>
+<body>
+
+<div class="container">
+    
+    <div class="main-header">
+        <h1>Daftar Kosa kata Bahasa jepang</h1>
+        <p class="subtitle">Index Kosa Kata: Ketik kata kunci di bawah untuk menyaring daftar</p>
+    </div>
+    
+    <div class="search-container">
+        <input type="text" id="postSearch" placeholder="Cari topik...">
+    </div>
+    
+    <div class="toc-wrapper">
+        <div class="scrollable-toc">
+            <ul class="toc-list" id="toc-list"> 
+                <li><a href="lampiran.html"><span class="section-number">1.</span> 添付資料 **lampiran**</a></li>
+                <li><a href="drawing.html"><span class="section-number">2.</span> 図面 Drawing</a></li>
+                <li><a href="positif.html"><span class="section-number">3.</span> 積極的 positif</a></li>
+                <li><a href="tugas.html"><span class="section-number">4.</span> 業務 Tugas</a></li>
+                <li><a href="ide.html"><span class="section-number">5.</span> 創意 ide original</a></li>
+                <li><a href="regulasi.html"><span class="section-number">6.</span> 調整 Penyesuaian</a></li>
+                <li><a href="part.html"><span class="section-number">7.</span> 製品　Part Name</a></li>
+                <li><a href="#URL_TOPIK_8"><span class="section-number">8.</span> Perbandingan Data Global</a></li>
+                <li><a href="#URL_TOPIK_9"><span class="section-number">9.</span> Proyeksi Masa Depan (Data 5 Tahun)</a></li>
+                <li><a href="#URL_TOPIK_10"><span class="section-number">10.</span> Sumber Referensi dan Validasi Data</a></li>
+                <li><a href="#URL_TOPIK_11"><span class="section-number">11.</span> **Lampiran A**: Data Mentah Penelitian</a></li>
+                <li><a href="#URL_TOPIK_12"><span class="section-number">12.</span> **Lampiran B**: Tabel Hasil Survei</a></li>
+            </ul>
+        </div>
+    </div>
+    
+    <p style="text-align: center; margin-top: 40px; font-size: 0.95rem; color: #777;">
+        Temukan hal menarik dalam halaman ini, jika ada saran dan informasi lain dapat meninggalkan komentar di bawah.
+    </p>
+
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Menggunakan ID input dari contoh.html
+        const searchInput = document.getElementById('postSearch'); 
+        // Mengambil item LI dari daftar isi Anda
+        const listItems = document.querySelectorAll('#toc-list li'); 
+
+        // Fungsi yang berjalan setiap kali input berubah (Pola EVENT dari contoh.html)
+        searchInput.addEventListener('input', function() {
+            // Menggunakan variabel pencarian yang sama dengan contoh.html
+            const searchTerm = this.value.trim().toUpperCase(); 
+
+            listItems.forEach(liItem => {
+                const anchorElement = liItem.querySelector('a');
+                
+                // --- STRATEGI PEMBERSIHAN TEKS PALING STABIL ---
+                
+                // 1. Ambil teks penuh (termasuk nomor urut di dalam span)
+                let fullText = (anchorElement.textContent || anchorElement.innerText);
+                
+                // 2. Identifikasi teks nomor urut dari span
+                const numberSpan = anchorElement.querySelector('.section-number');
+                let numberText = '';
+                if (numberSpan) {
+                    // Ambil teks span, trim, dan pastikan diikuti spasi untuk pencocokan yang akurat
+                    numberText = numberSpan.textContent.trim() + ' '; 
+                }
+                
+                // 3. Hapus nomor urut dari teks penuh menggunakan string replace yang kuat
+                let topicText = fullText;
+                if (numberText) {
+                    // Hanya hapus jika numberText ditemukan
+                    topicText = topicText.replace(numberText, '').trim();
+                }
+
+                // 4. Teks final yang akan dicari
+                const searchableText = topicText.toUpperCase();
+                
+                // --- LOGIKA FILTER ---
+                
+                // Tampilkan item jika teks topik mengandung filter ATAU jika kotak pencarian kosong
+                if (searchableText.includes(searchTerm) || searchTerm === '') {
+                    liItem.style.display = "list-item"; 
+                } else {
+                    liItem.style.display = "none"; 
+                }
+            });
+            // Catatan: Tidak ada logika group/grid hiding karena struktur Daftar Isi Anda flat.
+        });
+    });
+</script>
+</body>
+</html>
