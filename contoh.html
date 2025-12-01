@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daftar Lengkap Kategori Review & Konten Populer Tyoreview</title>
+    <meta name="description" content="Temukan kategori konten review terbaik dan paling populer di Tyoreview. Setiap kategori dapat diklik dan akan mengarahkan Anda ke halaman detail artikel.">
+    <style>
+        /* Variabel Warna DITINGKATKAN untuk 4 Kotak */
+        :root {
+            --primary-marketing: #8e44ad; /* Ungu (Gadget) */
+            --primary-design: #2ecc71;    /* Hijau (Lifestyle) */
+            --primary-gear: #3498db;      /* Biru (Barang Pilihan) */
+            --primary-cuan: #e74c3c;      /* Merah (Cari Cuan) */
+            --bg-color: #f4f6f9;
+            --card-bg: #ffffff;
+            --text-color: #333;
+            --border-color: #e0e0e0;
+        }
+
+        /* Basic Styling */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background: var(--bg-color);
+            padding: 20px;
+            margin: 0;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 15px;
+        }
+
+        /* JUDUL UTAMA */
+        .main-header {
+            text-align: center;
+            margin-bottom: 25px;
+            margin-top: 10px;
+        }
+        .main-header h1 {
+            color: #ff9800; /* Warna Oranye */
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin: 0;
+        }
+        .main-header p {
+            font-size: 1.2rem;
+            color: var(--text-color);
+            margin-top: 10px;
+            font-weight: 600;
+        }
+        .main-header p.subtitle {
+            font-size: 1.1rem; 
+            color: #666; 
+            margin-top: 5px;
+        }
+        
+        /* Search Box Styling */
+        .search-container {
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        #postSearch {
+            width: 100%;
+            max-width: 600px;
+            padding: 15px 20px 15px 50px; /* Padding kiri lebih besar untuk ikon */
+            font-size: 1rem;
+            border: 2px solid var(--border-color);
+            border-radius: 30px;
+            outline: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+            /* Menambahkan ikon Search SVG sebagai background */
+            background: var(--card-bg) url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="%23888" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>') no-repeat 15px center;
+            background-size: 20px 20px;
+        }
+
+        #postSearch:focus {
+            border-color: var(--primary-marketing);
+            box-shadow: 0 4px 10px rgba(142, 68, 173, 0.2);
+        }
+
+        /* Grid Utama 2x2 */
+        .quad-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr; /* 2 kolom per baris */
+            gap: 25px;
+            margin-bottom: 25px;
+            transition: all 0.3s ease; /* Transisi untuk menyembunyikan grid */
+        }
+        
+        .class-group {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            display: flex;
+            flex-direction: column;
+            transition: all 0.3s ease; /* Transisi untuk menyembunyikan grup */
+        }
+
+        /* Header Kotak */
+        .group-header {
+            text-align: center;
+            padding: 10px 0;
+            margin-bottom: 15px;
+            border-bottom: 3px solid;
+            flex-shrink: 0; 
+        }
+        .group-header h2 {
+            margin: 0;
+            font-size: 1.4rem;
+            font-weight: 700;
+        }
+        /* Style untuk Gadget (Marketing/Ungu) */
+        .group-marketing .group-header { border-bottom-color: var(--primary-marketing); color: var(--primary-marketing); }
+        /* Style untuk Lifestyle (Design/Hijau) */
+        .group-design .group-header { border-bottom-color: var(--primary-design); color: var(--primary-design); }
+        /* Style BARU untuk Barang Pilihan (Gear/Biru) */
+        .group-gear .group-header { border-bottom-color: var(--primary-gear); color: var(--primary-gear); }
+        /* Style BARU untuk Cari Cuan (Cuan/Merah) */
+        .group-cuan .group-header { border-bottom-color: var(--primary-cuan); color: var(--primary-cuan); }
+        
+        /* Star Rating & Kelas Count (SPAN KOSONG DIHAPUS) */
+        .rating {
+            font-size: 0.9rem;
+            color: #f39c12; /* Warna Bintang */
+            font-weight: 600;
+            margin-top: 5px;
+        }
+
+        /* Tombol Kelas (Item yang Dapat Diklik) */
+        .class-list {
+            flex-grow: 1; 
+        }
+        .class-item a {
+            display: block; 
+            text-decoration: none;
+            color: var(--text-color);
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 12px 15px;
+            margin-bottom: 10px;
+            transition: all 0.2s ease-in-out;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+        }
+
+        .class-item a:hover {
+            border-color: var(--primary-marketing);
+            background-color: #f7f9fc;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        /* Hover Spesifik untuk setiap kelompok */
+        .group-design .class-item a:hover { border-color: var(--primary-design); }
+        .group-gear .class-item a:hover { border-color: var(--primary-gear); }
+        .group-cuan .class-item a:hover { border-color: var(--primary-cuan); }
+
+        /* Teks Kelas */
+        .class-info {
+            margin-left: 0; 
+        }
+        .class-info strong {
+            display: block;
+            font-size: 1rem;
+            font-weight: 600;
+            line-height: 1.3;
+        }
+        
+        /* Media Queries untuk Responsif */
+        @media (max-width: 850px) {
+            .quad-grid {
+                grid-template-columns: 1fr; /* 1 kolom di layar mobile/tablet */
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="container">
+    
+    <div class="main-header">
+        <h1>Jelajahi Semua Kategori Review Terbaik Tyoreview</h1>
+        <p class="subtitle">Pilih tema yang menarik yang kamu perlukan disini</p>
+    </div>
+    
+    <div class="search-container">
+        <input type="text" id="postSearch" placeholder="Cari postingan berdasarkan judul...">
+    </div>
+    <div class="quad-grid">
+        
+        <div class="class-group group-marketing">
+            <div class="group-header">
+                <h2>Gadget</h2>
+                <div class="rating">4.9 ⭐</div>
+            </div>
+            
+            <div class="class-list">
+                <div class="class-item">
+                    <a href="http://www.tyoreview.my.id/2025/10/review-hp-infinix-note-50s-5g-8256gb.html">
+                        <div class="class-info">
+                            <strong>HP Infinix Note 50S (Review)</strong>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="class-item">
+                    <a href="http://www.tyoreview.my.id/2025/10/review-gadget-rekomendasi-hp-2-jt-an.html">
+                        <div class="class-info">
+                            <strong>Rekomendasi HP 2 Jutaan</strong>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="class-item">
+                    <a href="http://www.tyoreview.my.id/2025/10/review-gadget-mediatex.html">
+                        <div class="class-info">
+                            <strong>Review Chipset Mediatex Terbaru</strong>
+                        </div>
+                    </a>
+                </div>
+                
+                <div class="class-item">
+                    <a href="http://www.tyoreview.my.id/2025/10/review-gadget-xiaomi-17-pro-max-5g.html">
+                        <div class="class-info">
+                            <strong>HP Xiaomi 17 Pro Max 5G (Review)</strong>
+                        </div>
+                    </a>
+                </div>
+                
+                <div class="class-item">
+                    <a href="http://www.tyoreview.my.id/2025/10/review-gadget-hp-poco.html">
+                        <div class="class-info">
+                            <strong>HP POCO Pilihan (Review)</strong>
+                        </div>
+                    </a>
+                </div>
+              <div class="class-item">
+                    <a href="http://www.tyoreview.my.id/2025/10/review-gadget-honor-400-lite-5g.html">
+                        <div class="class-info">
+                            <strong>HONOR 400 Lite 5G</strong>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div> 
+
+        <div class="class-group group-design">
+            <div class="group-header">
+                <h2>Lifestyle</h2>
+                <div class="rating">4.9 ⭐</div>
+            </div>
+            
+            <div class="class-list">
+                <div class="class-item">
+                    <a href="http://www.tyoreview.my.id/2025/10/review-skincare-cowok.html">
+                        <div class="class-info">
+                            <strong>Tips Skin Care Cowok (A-Z)</strong>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="class-item">
+                    <a href="http://www.tyoreview.my.id/2025/10/basic-skincare.html">
+                        <div class="class-info">
+                            <strong>Basic Skincare</strong>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="class-item">
+                    <a href="#URL-TipsOlahragaDiRumah">
+                        <div class="class-info">
+                            <strong>Segera Hadir: Tips Olahraga di Rumah</strong>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="class-item">
+                    <a href="#URL-ResepMasakanPraktis">
+                        <div class="class-info">
+                            <strong>Segera Hadir: Resep Masakan Praktis</strong>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="class-item">
+                    <a href="#URL-ManajemenKeuanganPribadi">
+                        <div class="class-info">
+                            <strong>Segera Hadir: Manajemen Keuangan Pribadi</strong>
+                        </div>
+                    </a>
+                </div>
+                
+                <div class="class-item">
+                    <a href="#URL-Tambahan1">
+                        <div class="class-info">
+                            <strong>Segera Hadir: Cara Menjaga Kesehatan Mental</strong>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="class-item">
+                    <a href="#URL-Tambahan2">
+                        <div class="class-info">
+                            <strong>Segera Hadir: Traveling Murah dan Efisien</strong>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="class-item">
+                    <a href="#URL-Tambahan3">
+                        <div class="class-info">
+                            <strong>Segera Hadir: Tips Membangun Kebiasaan Baik</strong>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="class-item">
+                    <a href="#URL-Tambahan4">
+                        <div class="class-info">
+                            <strong>Segera Hadir: Rekomendasi Film & Series Inspiratif</strong>
+                        </div>
+                    </a>
+                </div>
+                
+            </div>
+        </div> 
+
+    </div> 
+
+    <div class="quad-grid">
+
+        <div class="class-group group-gear">
+            <div class="group-header">
+                <h2>Barang Pilihan</h2>
+                <div class="rating">4.9 ⭐</div>
+            </div>
+            
+            <div class="class-list">
+                <div class="class-item">
+                    <a href="http://www.tyoreview.my.id/2025/10/minna-no-nihongo.html">
+                        <div class="class-info">
+                            <strong>Review Buku Bahasa Jepang Minna No Nihongo</strong>
+                        </div>
+                    </a>
+                </div>
+                
+                <div class="class-item">
+                    <a href="#URL-SearchEngineOptimizationSEO">
+                        <div class="class-info">
+                            <strong>Segera Hadir: Review Headset Gaming Terbaik</strong>
+                        </div>
+                    </a>
+                </div>
+                
+                <div class="class-item">
+                    <a href="#URL-WABusinessSmartphone">
+                        <div class="class-info">
+                            <strong>Segera Hadir: Aksesoris Meja Kerja WFH</strong>
+                        </div>
+                    </a>
+                </div>
+                
+                <div class="class-item">
+                    <a href="#URL-CopywritingFundamentals">
+                        <div class="class-info">
+                            <strong>Segera Hadir: Rekomendasi Alat Olahraga Kecil</strong>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div> 
+
+        <div class="class-group group-cuan">
+            <div class="group-header">
+                <h2>Cari Cuan di Internet</h2>
+                <div class="rating">4.9 ⭐</div>
+            </div>
+            
+            <div class="class-list">
+                <div class="class-item">
+                    <a href="http://www.tyoreview.my.id/2025/10/e-book-cara-mendapatkan-uang-online.html">
+                        <div class="class-info">
+                            <strong>Review E-Book Cara Mendapatkan Cuan Online</strong>
+                        </div>
+                    </a>
+                </div>
+                
+                <div class="class-item">
+                    <a href="#URL-DesainCorelDraw">
+                        <div class="class-info">
+                            <strong>Segera Hadir: Cara Cuan dari Affiliate Marketing</strong>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="class-item">
+                    <a href="#URL-AdobeLightroomSmartphone">
+                        <div class="class-info">
+                            <strong>Segera Hadir: Tips Jadi Dropshipper Sukses</strong>
+                        </div>
+                    </a>
+                </div>
+                
+                <div class="class-item">
+                    <a href="#URL-PicsartSmartphone">
+                        <div class="class-info">
+                            <strong>Segera Hadir: Ide Bisnis Online Modal Kecil</strong>
+                        </div>
+                    </a>
+                </div>
+                
+                <div class="class-item">
+                    <a href="#URL-PhotoshopExpress">
+                        <div class="class-info">
+                            <strong>Segera Hadir: Menghasilkan Uang dari Blog</strong>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div> 
+
+    </div>
+
+    <div class="quad-grid">
+        
+        <div class="class-group group-marketing">
+            <div class="group-header">
+                <h2>Investasi & Trading</h2>
+                <div class="rating">4.9 ⭐</div>
+            </div>
+            
+            <div class="class-list">
+                <div class="class-item">
+                    <a href="http://www.tyoreview.my.id/2025/10/review-buku-analisa-teknikal.html">
+                        <div class="class-info">
+                            <strong>Analisa teknikal</strong>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="class-item">
+                    <a href="http://www.tyoreview.my.id/2025/10/review-gadget-rekomendasi-hp-2-jt-an.html">
+                        <div class="class-info">
+                            <strong>Rekomendasi HP 2 Jutaan</strong>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="class-item">
+                    <a href="http://www.tyoreview.my.id/2025/10/review-gadget-mediatex.html">
+                        <div class="class-info">
+                            <strong>Review Chipset Mediatex Terbaru</strong>
+                        </div>
+                    </a>
+                </div>
+                
+                <div class="class-item">
+                    <a href="http://www.tyoreview.my.id/2025/10/review-gadget-xiaomi-17-pro-max-5g.html">
+                        <div class="class-info">
+                            <strong>HP Xiaomi 17 Pro Max 5G (Review)</strong>
+                        </div>
+                    </a>
+                </div>
+                
+                <div class="class-item">
+                    <a href="http://www.tyoreview.my.id/2025/10/review-gadget-hp-poco.html">
+                        <div class="class-info">
+                            <strong>HP POCO Pilihan (Review)</strong>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div> 
+
+        <div class="class-group group-design">
+            <div class="group-header">
+                <h2>Info</h2>
+                <div class="rating">4.9 ⭐</div>
+            </div>
+            
+            <div class="class-list">
+                <div class="class-item">
+                    <a href="http://www.tyoreview.my.id/2025/10/menghadapi-cuaca-panas.html">
+                        <div class="class-info">
+                            <strong>Tips Cuaca panas</strong>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="class-item">
+                    <a href="#URL-GayaHidupMinimalis">
+                        <div class="class-info">
+                            <strong>Segera Hadir: Gaya Hidup Minimalis</strong>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="class-item">
+                    <a href="#URL-TipsOlahragaDiRumah">
+                        <div class="class-info">
+                            <strong>Segera Hadir: Tips Olahraga di Rumah</strong>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="class-item">
+                    <a href="#URL-ResepMasakanPraktis">
+                        <div class="class-info">
+                            <strong>Segera Hadir: Resep Masakan Praktis</strong>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="class-item">
+                    <a href="#URL-ManajemenKeuanganPribadi">
+                        <div class="class-info">
+                            <strong>Segera Hadir: Manajemen Keuangan Pribadi</strong>
+                        </div>
+                    </a>
+                </div>
+                
+                <div class="class-item">
+                    <a href="#URL-Tambahan1">
+                        <div class="class-info">
+                            <strong>Segera Hadir: Cara Menjaga Kesehatan Mental</strong>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="class-item">
+                    <a href="#URL-Tambahan2">
+                        <div class="class-info">
+                            <strong>Segera Hadir: Traveling Murah dan Efisien</strong>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="class-item">
+                    <a href="#URL-Tambahan3">
+                        <div class="class-info">
+                            <strong>Segera Hadir: Tips Membangun Kebiasaan Baik</strong>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="class-item">
+                    <a href="#URL-Tambahan4">
+                        <div class="class-info">
+                            <strong>Segera Hadir: Rekomendasi Film & Series Inspiratif</strong>
+                        </div>
+                    </a>
+                </div>
+                
+            </div>
+        </div> 
+
+    </div> 
+
+    <div class="quad-grid">
+
+        <div class="class-group group-gear">
+            <div class="group-header">
+                <h2>Skin Care</h2>
+                <div class="rating">4.9 ⭐</div>
+            </div>
+            
+            <div class="class-list">
+                <div class="class-item">
+                    <a href="http://www.tyoreview.my.id/2025/10/tips-glowing.html">
+                        <div class="class-info">
+                            <strong>Tips Glowing</strong>
+                        </div>
+                    </a>
+                </div>
+                
+                <div class="class-item">
+                    <a href="#URL-SearchEngineOptimizationSEO">
+                        <div class="class-info">
+                            <strong>Segera Hadir: Review Headset Gaming Terbaik</strong>
+                        </div>
+                    </a>
+                </div>
+                
+                <div class="class-item">
+                    <a href="#URL-WABusinessSmartphone">
+                        <div class="class-info">
+                            <strong>Segera Hadir: Aksesoris Meja Kerja WFH</strong>
+                        </div>
+                    </a>
+                </div>
+                
+                <div class="class-item">
+                    <a href="#URL-CopywritingFundamentals">
+                        <div class="class-info">
+                            <strong>Segera Hadir: Rekomendasi Alat Olahraga Kecil</strong>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div> 
+
+        <div class="class-group group-cuan">
+            <div class="group-header">
+                <h2>Cari Cuan di Internet</h2>
+                <div class="rating">4.9 ⭐</div>
+            </div>
+            
+            <div class="class-list">
+                <div class="class-item">
+                    <a href="http://www.tyoreview.my.id/2025/10/e-book-cara-mendapatkan-uang-online.html">
+                        <div class="class-info">
+                            <strong>Review E-Book Cara Mendapatkan Cuan Online</strong>
+                        </div>
+                    </a>
+                </div>
+                
+                <div class="class-item">
+                    <a href="#URL-DesainCorelDraw">
+                        <div class="class-info">
+                            <strong>Segera Hadir: Cara Cuan dari Affiliate Marketing</strong>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="class-item">
+                    <a href="#URL-AdobeLightroomSmartphone">
+                        <div class="class-info">
+                            <strong>Segera Hadir: Tips Jadi Dropshipper Sukses</strong>
+                        </div>
+                    </a>
+                </div>
+                
+                <div class="class-item">
+                    <a href="#URL-PicsartSmartphone">
+                        <div class="class-info">
+                            <strong>Segera Hadir: Ide Bisnis Online Modal Kecil</strong>
+                        </div>
+                    </a>
+                </div>
+                
+                <div class="class-item">
+                    <a href="#URL-PhotoshopExpress">
+                        <div class="class-info">
+                            <strong>Segera Hadir: Menghasilkan Uang dari Blog</strong>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div> 
+
+    </div>
+
+
+    <p style="text-align: center; margin-top: 40px; font-size: 0.95rem; color: #777;">
+        Temukan hal menarik dalam halaman ini, jika ada saran dan informasi lain dapat meninggalkan komentar di bawah.
+    </p>
+
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const searchInput = document.getElementById('postSearch');
+        const classGroups = document.querySelectorAll('.class-group');
+        const quadGrids = document.querySelectorAll('.quad-grid');
+
+        // Fungsi yang berjalan setiap kali input berubah
+        searchInput.addEventListener('input', function() {
+            const searchTerm = this.value.toLowerCase();
+
+            classGroups.forEach(group => {
+                let visibleItemCount = 0;
+                const items = group.querySelectorAll('.class-item');
+                
+                // 1. Filter Item di Dalam Grup
+                items.forEach(item => {
+                    // Ambil teks dari tag <strong> dan ubah ke huruf kecil
+                    const itemText = item.querySelector('strong').textContent.toLowerCase();
+                    
+                    if (itemText.includes(searchTerm)) {
+                        item.style.display = 'block'; // Tampilkan item
+                        visibleItemCount++;
+                    } else {
+                        item.style.display = 'none'; // Sembunyikan item
+                    }
+                });
+
+                // 2. Tampilkan atau Sembunyikan Seluruh Grup
+                if (visibleItemCount === 0) {
+                    group.style.display = 'none';
+                } else {
+                    group.style.display = 'flex'; // Mengembalikan ke display flex (sesuai CSS)
+                }
+            });
+            
+            // 3. Tampilkan atau Sembunyikan Seluruh Grid (Baris)
+            quadGrids.forEach(grid => {
+                // Hitung jumlah grup yang masih terlihat (yaitu yang display-nya bukan 'none')
+                // Perlu sedikit penyesuaian untuk menangani properti style yang kosong
+                const visibleGroups = Array.from(grid.querySelectorAll('.class-group')).filter(group => {
+                    return group.style.display !== 'none';
+                }).length;
+                
+                if (visibleGroups === 0 && searchTerm !== '') {
+                    // Jika tidak ada grup yang terlihat (dan input pencarian tidak kosong), sembunyikan baris grid
+                    grid.style.display = 'none';
+                } else {
+                    // Tampilkan kembali baris grid jika ada grup yang terlihat atau jika search kosong
+                    grid.style.display = 'grid'; 
+                }
+            });
+        });
+    });
+</script>
+
+</body>
+</html>
