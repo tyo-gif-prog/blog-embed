@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daftar Isi / Index Artikel (Scrollable)</title>
+    <meta name="description" content="Struktur Daftar Isi yang dapat diklik (Index) dengan fitur scroll otomatis (scrollable) untuk mengelola daftar topik yang panjang.">
+    <meta name="keywords" content="Daftar Isi, Index, HTML, Scrollable, Navigasi Artikel, Table of Contents, CSS Overflow">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
+            line-height: 1.6 !important;
+            color: #2c3e50 !important;
+            max-width: 900px !important;
+            margin: 20px auto !important;
+            padding: 20px !important;
+            background-color: #ecf0f1 !important;
+        }
+        .toc-container {
+            background-color: #ffffff !important;
+            border: 1px solid #bdc3c7 !important;
+            padding: 20px !important;
+            border-radius: 8px !important;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1) !important;
+        }
+        h1 {
+            color: #34495e !important;
+            border-bottom: 2px solid #3498db !important;
+            padding-bottom: 10px !important;
+            margin-top: 0 !important;
+        }
+        
+        /* CSS Baru untuk Scroll */
+        .scrollable-toc {
+            /* Tinggi maksimal diatur (sekitar 10-12 baris) */
+            max-height: 400px !important; 
+            /* Tambahkan scrollbar vertikal jika konten melebihi max-height */
+            overflow-y: auto !important; 
+            padding-right: 15px !important; /* Ruang untuk scrollbar */
+        }
+        /* Akhir CSS Baru */
+
+        /* Daftar Tak Berurut */
+        .toc-list {
+            list-style-type: none !important; 
+            padding-left: 0 !important;
+            margin: 0 !important; /* Reset margin bawaan */
+        }
+        /* Item Daftar */
+        .toc-list li {
+            margin: 10px 0 !important;
+            padding: 5px 0 !important;
+            border-bottom: 1px dotted #ccc !important;
+        }
+        /* Link dalam Daftar Isi */
+        .toc-list a {
+            text-decoration: none !important;
+            color: #2980b9 !important; 
+            font-weight: bold !important;
+            display: block !important;
+            padding: 5px 10px !important;
+            transition: background-color 0.3s !important;
+        }
+        .toc-list a:hover {
+            background-color: #eaf4fb !important; 
+            color: #c0392b !important; 
+            border-radius: 4px !important;
+        }
+        .section-number {
+            font-weight: normal !important;
+            color: #7f8c8d !important;
+            margin-right: 10px !important;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="toc-container">
+        <h1>index kosa kata</h1>
+        <p>klik pada pembahasan</p>
+        
+        <div class="scrollable-toc">
+            <ul class="toc-list">
+                <li><a href="lampiran.html"><span class="section-number">1.</span> 添付資料 lampiran</a></li>
+                <li><a href="drawing.html"><span class="section-number">2.</span> 図面 Drawing</a></li>
+                <li><a href="positif.html"><span class="section-number">3.</span> 積極的 positif</a></li>
+                <li><a href="#URL_TOPIK_5"><span class="section-number">5.</span> Solusi dan Rekomendasi Terbaik</a></li>
+                <li><a href="#URL_TOPIK_6"><span class="section-number">6.</span> Kesimpulan dan Saran</a></li>
+                <li><a href="#URL_TOPIK_7"><span class="section-number">7.</span> Studi Kasus Terverifikasi</a></li>
+                <li><a href="#URL_TOPIK_8"><span class="section-number">8.</span> Perbandingan Data Global</a></li>
+                <li><a href="#URL_TOPIK_9"><span class="section-number">9.</span> Proyeksi Masa Depan (Data 5 Tahun)</a></li>
+                <li><a href="#URL_TOPIK_10"><span class="section-number">10.</span> Sumber Referensi dan Validasi Data</a></li>
+                <li><a href="#URL_TOPIK_11"><span class="section-number">11.</span> Lampiran A: Data Mentah Penelitian</a></li>
+                <li><a href="#URL_TOPIK_12"><span class="section-number">12.</span> Lampiran B: Tabel Hasil Survei</a></li>
+            </ul>
+        </div>
+        </div>
+
+</body>
+</html>

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daftar Isi / Index Artikel</title>
+    <meta name="description" content="Struktur Daftar Isi yang dapat diklik (Index) untuk navigasi cepat ke berbagai topik utama artikel.">
+    <meta name="keywords" content="Daftar Isi, Index, HTML, Navigasi Artikel, Table of Contents">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
+            line-height: 1.6 !important;
+            color: #2c3e50 !important;
+            max-width: 900px !important;
+            margin: 20px auto !important;
+            padding: 20px !important;
+            background-color: #ecf0f1 !important;
+        }
+        .toc-container {
+            background-color: #ffffff !important;
+            border: 1px solid #bdc3c7 !important;
+            padding: 20px !important;
+            border-radius: 8px !important;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1) !important;
+        }
+        h1 {
+            color: #34495e !important;
+            border-bottom: 2px solid #3498db !important;
+            padding-bottom: 10px !important;
+            margin-top: 0 !important;
+        }
+        /* Daftar Tak Berurut */
+        .toc-list {
+            list-style-type: none !important; /* Menghapus bullet default */
+            padding-left: 0 !important;
+        }
+        /* Item Daftar */
+        .toc-list li {
+            margin: 10px 0 !important;
+            padding: 5px 0 !important;
+            border-bottom: 1px dotted #ccc !important;
+        }
+        /* Link dalam Daftar Isi */
+        .toc-list a {
+            text-decoration: none !important;
+            color: #2980b9 !important; /* Warna biru untuk link */
+            font-weight: bold !important;
+            display: block !important;
+            padding: 5px 10px !important;
+            transition: background-color 0.3s !important;
+        }
+        .toc-list a:hover {
+            background-color: #eaf4fb !important; /* Warna saat mouse diarahkan */
+            color: #c0392b !important; /* Warna merah saat hover */
+            border-radius: 4px !important;
+        }
+        .section-number {
+            font-weight: normal !important;
+            color: #7f8c8d !important;
+            margin-right: 10px !important;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="toc-container">
+        <h1>Daftar Isi (Index) Artikel</h1>
+        <p>Silakan klik topik di bawah ini untuk menuju ke bagian yang relevan. Harap tambahkan URL tujuan di atribut <code>href</code>.</p>
+        
+        <ul class="toc-list">
+            <li>
+                <a href="#URL_TOPIK_1_SILAKAN_GANTI_INI">
+                    <span class="section-number">1.</span> Pengantar dan Definisi Masalah
+                </a>
+            </li>
+            <li>
+                <a href="#URL_TOPIK_2_SILAKAN_GANTI_INI">
+                    <span class="section-number">2.</span> Latar Belakang dan Data Historis
+                </a>
+            </li>
+            <li>
+                <a href="#URL_TOPIK_3_SILAKAN_GANTI_INI">
+                    <span class="section-number">3.</span> Metodologi Penelitian dan Analisis Logis
+                </a>
+            </li>
+            <li>
+                <a href="#URL_TOPIK_4_SILAKAN_GANTI_INI">
+                    <span class="section-number">4.</span> Hasil Analisis dan Temuan Utama
+                </a>
+                
+            </li>
+            <li>
+                <a href="#URL_TOPIK_5_SILAKAN_GANTI_INI">
+                    <span class="section-number">5.</span> Solusi dan Rekomendasi Terbaik
+                </a>
+            </li>
+            <li>
+                <a href="#URL_TOPIK_6_SILAKAN_GANTI_INI">
+                    <span class="section-number">6.</span> Kesimpulan dan Saran
+                </a>
+            </li>
+        </ul>
+    </div>
+
+</body>
+</html>
